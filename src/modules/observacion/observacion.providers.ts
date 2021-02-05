@@ -1,5 +1,5 @@
 import { Connection, Repository } from 'typeorm';
-import { Observacion } from './model/observacion.entity';
+import { Observacion } from '../entities/observacion.entity';
 
 export const observacionProviders = [
   {

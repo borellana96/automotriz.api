@@ -1,5 +1,5 @@
 import { Connection, Repository } from 'typeorm';
-import { Vehiculo } from './model/vehiculo.entity';
+import { Vehiculo } from '../entities/vehiculo.entity';
 
 export const vehiculoProviders = [
   {

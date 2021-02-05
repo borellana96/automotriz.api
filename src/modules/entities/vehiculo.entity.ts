@@ -1,10 +1,9 @@
-import { observable } from "rxjs";
-import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
-import { Observacion } from "../../observacion/model/observacion.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Observacion } from "./observacion.entity";
 
 @Entity()
 export class Vehiculo {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: number;
 
     @Column({ length: 45 })
