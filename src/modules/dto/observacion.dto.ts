@@ -1,7 +1,18 @@
+import { ApiProperty } from "@nestjs/swagger";
+
 export class observacionDTO {
+    @ApiProperty()
     readonly detalle: string;
-    readonly idestado?: any;
-    readonly idvehiculo?: any;
-    readonly creado_por?: any;
-    readonly resuelto_por?: any;
+
+    @ApiProperty()
+    readonly idestado: any;
+
+    @ApiProperty()
+    readonly idvehiculo: any;
+
+    @ApiProperty()
+    readonly creado_por: any;
+
+    @ApiProperty()
+    readonly resuelto_por: any;
 }

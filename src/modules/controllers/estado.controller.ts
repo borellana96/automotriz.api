@@ -1,11 +1,14 @@
 import { Controller, Get, Post, Res, HttpStatus, Body, Param, NotFoundException } from '@nestjs/common';
 import { EstadoService } from '../services/estado.service';
 import { CreateEstadoDTO } from '../dto/estado.dto';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Estado de observacion')
 @Controller('estado')
 export class EstadoController {
     constructor(private estadoService: EstadoService) { }
 
+    @ApiOperation({ summary: 'Obtiene los estados de las observaciones que son 3 e inicialmente insertados en esta tabla: Registrada, Aceptada y Rechazada' })
     @Get()
     async findAll(@Res() res) {
         let estados = await this.estadoService.getEstados();
@@ -14,6 +17,7 @@ export class EstadoController {
         });
     }
 
+    @ApiOperation({ summary: 'Obtiene un estado de observación según el ID entre ellos: Registrada, Aceptada y Rechazada' })
     @Get('/:estadoId')
     async findEstadoById(@Res() res, @Param('estadoId') estadoId) {
         let estado = await this.estadoService.getEstadoById(estadoId);
@@ -25,6 +29,8 @@ export class EstadoController {
             });
     }
 
+    @ApiOperation({ summary: 'Crea un estado de observación' })
+    @ApiResponse({ status: 200, description: 'Estado successfully created.' })
     @Post()
     async saveEstado(@Res() res, @Body() createEstadoDTO: CreateEstadoDTO) {
         let estado = await this.estadoService.createEstado(createEstadoDTO);
@@ -33,8 +39,4 @@ export class EstadoController {
             estado: estado
         });
     }
-    // {
-    //     "nombre": "rechazada"
-    // }
-
 }

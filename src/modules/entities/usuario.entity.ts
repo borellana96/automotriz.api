@@ -12,7 +12,7 @@ export class Usuario {
     @Column({ length: 45 })
     password: string;
 
-    @OneToMany(type => Observacion, observacion => observacion.creado_por)
+    @OneToMany(() => Observacion, observacion => observacion.creado_por)
     observacion_creado: Observacion[];
 
     @OneToMany(() => Observacion, observacion => observacion.resuelto_por)

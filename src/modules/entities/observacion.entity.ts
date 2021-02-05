@@ -17,7 +17,7 @@ export class Observacion {
     @ManyToOne(() => Vehiculo, idvehiculo => idvehiculo.observacion)
     idvehiculo: Vehiculo;
 
-    @ManyToOne(type => Usuario, creado_por => creado_por.observacion_creado)
+    @ManyToOne(() => Usuario, creado_por => creado_por.observacion_creado)
     creado_por: Usuario;
 
     @ManyToOne(() => Usuario, resuelto_por => resuelto_por.observacion_resuelto)
