@@ -19,6 +19,8 @@ export class UsuarioController {
 
     @Get('/:usuarioId')
     @ApiOperation({ summary: 'Obtiene un usuario empleado según su ID' })
+    @ApiResponse({ status: 200, description: 'Usuario successfully created.' })
+    @ApiResponse({ status: 404, description: "Usuario does not exists." })
     async findUsuarioById(@Res() res, @Param('usuarioId') usuarioId) {
         let usuario = await this.usuarioService.getUsuarioById(usuarioId);
         if (!usuario)

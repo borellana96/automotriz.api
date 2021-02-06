@@ -19,6 +19,8 @@ export class VehiculoController {
 
     @Get('/:vehiculoId')
     @ApiOperation({ summary: 'Obtiene un vehículo según el ID que ha pasado el proceso de inspección' })
+    @ApiResponse({ status: 200, description: 'vehiculo successfully created.' })
+    @ApiResponse({ status: 404, description: "Vehiculo does not exists." })
     async findVehiculoById(@Res() res, @Param('vehiculoId') vehiculoId){
         let vehiculo = await this.vehiculoService.getVehiculoById(vehiculoId);
         if(!vehiculo)

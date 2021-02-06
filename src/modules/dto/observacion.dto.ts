@@ -5,7 +5,7 @@ export class observacionDTO {
     readonly detalle: string;
 
     @ApiProperty()
-    readonly idestado: any;
+    readonly idestado?: any;
 
     @ApiProperty()
     readonly idvehiculo: any;
